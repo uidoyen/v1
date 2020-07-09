@@ -4,20 +4,20 @@ let activeEnv =
 console.log(`Using environment config: '${activeEnv}'`)
 
 require("dotenv").config({
-  path: `.env.${activeEnv}`,
+  path: `.env.${activeEnv}`
 })
 
 console.log(`This WordPress Endpoint is used: '${process.env.WORDPRESS_URL}'`)
-
 
 module.exports = {
   siteMetadata: {
     title: `Gatsby Starter WordPress Advanced`,
     description: `The great Gatsby Starter WordPress Advanced.`,
-    author: `Henrik Wirth`,
+    author: `Henrik Wirth`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
@@ -30,23 +30,43 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
+        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        path: `${__dirname}/src/images`
+      }
     },
     {
       resolve: "gatsby-source-graphql",
       options: {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
-        url: `${process.env.WORDPRESS_URL}/graphql`,
-      },
+        url: `${process.env.WORDPRESS_URL}/graphql`
+      }
     },
-  ],
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              aliases: { sh: "bash", js: "javascript" },
+              showLineNumbers: true
+            }
+          }
+        ]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `uidoyen`
+      }
+    }
+  ]
 }

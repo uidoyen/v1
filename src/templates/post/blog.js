@@ -3,28 +3,43 @@ import Layout from "../../components/Layout"
 import PostEntry from "../../components/PostEntry"
 import Pagination from "../../components/Pagination"
 import SEO from "../../components/SEO"
+import styled from "styled-components"
+import { Container, media } from "@styles"
 
-const Blog = ({ pageContext }) => {
+const StyledContainer = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 100px auto 0;
+  ${media.tablet`flex-direction: row;`};
+`
+
+const StyledContent = styled.article`
+  flex: 1;
+  ${media.tablet`flex: 2;`};
+`
+
+const Blog = ({ pageContext, isFrontPage }) => {
   const { nodes, pageNumber, hasNextPage, itemsPerPage, allPosts } = pageContext
-
   return (
-    <Layout>
-      <SEO
-        title="Blog"
-        description="Blog posts"
-        keywords={[`blog`]}
-      />
-
-      {nodes && nodes.map(post => <PostEntry key={post.postId} post={post}/>)}
-
-      <Pagination
-        pageNumber={pageNumber}
-        hasNextPage={hasNextPage}
-        allPosts={allPosts}
-        itemsPerPage={itemsPerPage}
-      />
+    <Layout isFrontPage={isFrontPage}>
+      <SEO title="Blog" description="Blog posts" keywords={[`blog`]} />
+      <StyledContainer>
+        <StyledContent>
+          {nodes &&
+            nodes.map(post => <PostEntry key={post.postId} post={post} />)}
+          <Pagination
+            pageNumber={pageNumber}
+            hasNextPage={hasNextPage}
+            allPosts={allPosts}
+            itemsPerPage={itemsPerPage}
+          />
+        </StyledContent>
+      </StyledContainer>
     </Layout>
   )
 }
-
+Blog.defaultProps = {
+  isFrontPage: false
+}
 export default Blog

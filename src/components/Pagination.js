@@ -1,51 +1,68 @@
 import React from "react"
 import { Link } from "gatsby"
 import { blogURI } from "../../globals"
+import styled from "styled-components"
+import { theme } from "@styles"
+const { colors } = theme
+
+const StyledPrev = styled(Link)`
+  background-color: ${colors.black};
+  border-radius: 3px;
+  color: ${colors.white};
+  padding: 8px 20px;
+
+  &:hover {
+    background-color: ${colors.blue};
+  }
+`
+const StyledNext = styled(Link)`
+  background-color: ${colors.black};
+  border-radius: 3px;
+  color: ${colors.white};
+  padding: 8px 20px;
+
+  &:hover {
+    background-color: ${colors.blue};
+  }
+`
+const StyledCurrentPage = styled.span`
+  background-color: ${colors.white};
+  border-radius: 3px;
+  color: ${colors.black};
+  padding: 8px 20px;
+`
 
 const Pagination = ({ pageNumber, hasNextPage }) => {
-
   if (pageNumber === 1 && !hasNextPage) return null
 
   return (
     <div style={{ margin: "60px auto", textAlign: "center" }}>
-      <h2>Posts navigation</h2>
       <div>
-        {
-          pageNumber > 1 && (
-            <Link
-              className="prev page-numbers"
-              style={{
-                padding: "4px 8px 5px 8px",
-                backgroundColor: "rgba(0,0,0,.05)",
-                borderRadius: "3px",
-              }}
-              to={pageNumber > 2 ? `${blogURI}/page/${pageNumber - 1}` : `${blogURI}/`}
-            >
-              <span>Previous page</span>
-            </Link>
-          )
-        }
-        <span aria-current="page" className="page-numbers current" style={{ padding: "5px 10px" }}>
+        {pageNumber > 1 && (
+          <StyledPrev
+            className="prev page-numbers"
+            to={
+              pageNumber > 2
+                ? `${blogURI}/page/${pageNumber - 1}`
+                : `${blogURI}/`
+            }
+          >
+            <span>Previous page</span>
+          </StyledPrev>
+        )}
+        <StyledCurrentPage aria-current="page" className="page-numbers current">
           <span className="meta-nav screen-reader-text">Page </span>
           {pageNumber}
-        </span>
+        </StyledCurrentPage>
 
-        {
-          hasNextPage && (
-            <Link
-              style={{
-                padding: "4px 8px 5px 8px",
-                backgroundColor: "rgba(0,0,0,.05)",
-                borderRadius: "3px",
-              }}
-              className="next page-numbers"
-              to={`${blogURI}/page/${pageNumber + 1}`
-              }
-            >
-              <span>Next page </span>
-            </Link>
-          )
-        }
+        {hasNextPage && (
+          <StyledNext
+            className="next page-numbers"
+            to={`${blogURI}/page/${pageNumber + 1}`}
+          >
+            <span>Next page </span>
+          </StyledNext>
+        )}
       </div>
     </div>
   )

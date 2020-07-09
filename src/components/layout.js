@@ -7,48 +7,43 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
+import { GlobalStyle, Main } from "@styles"
+import Nav from "./Nav"
+import Footer from "./footer"
+import pattern from "../images/as.gif"
+import { Container, media, theme, mixins } from "@styles"
+const { colors, fontSizes, fonts } = theme
 
-import Header from "./header"
-import "./layout.css"
-import Menu from "./Menu"
-
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+// import "./layout.css"
+const StyledMain = styled(Main)``
+const StyledPattern = styled.div`
+  height: 10px;
+  width: 100%;
+  background-image: url(${pattern});
+  position: relative;
+  z-index: 4;
+  background-color: ${colors.blue};
+  background-attachment: fixed;
+  background-blend-mode: luminosity;
+`
+const Layout = ({ children, isFrontPage }) => {
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <Menu />
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+      <GlobalStyle />
+      <StyledPattern></StyledPattern>
+      <div>
+        <Nav isFrontPage={isFrontPage} />
+        <StyledMain>{children}</StyledMain>
+        <Footer />
+        <StyledPattern></StyledPattern>
       </div>
     </>
   )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Layout

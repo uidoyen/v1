@@ -1,7 +1,9 @@
 const {
   PostTemplateFragment,
-  BlogPreviewFragment,
+  BlogPreviewFragment
 } = require("../src/templates/post/data.js")
+
+const { FluidImageFragment } = require("../src/templates/fragments")
 
 const { blogURI } = require("../globals")
 
@@ -10,6 +12,7 @@ const blogTemplate = require.resolve("../src/templates/post/blog.js")
 
 const GET_POSTS = `
     # Here we make use of the imported fragments which are referenced above
+    ${FluidImageFragment}
     ${PostTemplateFragment}
     ${BlogPreviewFragment}
 
@@ -41,12 +44,10 @@ const GET_POSTS = `
     }
 `
 
-
 const allPosts = []
-const blogPages = [];
-let pageNumber = 0;
-const itemsPerPage = 10;
-
+const blogPages = []
+let pageNumber = 0
+const itemsPerPage = 6
 
 /**
  * This is the export which Gatbsy will use to process.
@@ -55,7 +56,6 @@ const itemsPerPage = 10;
  * @returns {Promise<void>}
  */
 module.exports = async ({ actions, graphql, reporter }, options) => {
-
   /**
    * This is the method from Gatsby that we're going
    * to use to create posts in our static site.
@@ -71,7 +71,7 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
    * @param variables
    * @returns {Promise<*>}
    */
-  const fetchPosts = async (variables) =>
+  const fetchPosts = async variables =>
     /**
      * Fetch posts using the GET_POSTS query and the variables passed in.
      */
@@ -83,9 +83,9 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
         wpgraphql: {
           posts: {
             nodes,
-            pageInfo: { hasNextPage, endCursor },
-          },
-        },
+            pageInfo: { hasNextPage, endCursor }
+          }
+        }
       } = data
 
       /**
@@ -115,17 +115,17 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
           pageNumber: pageNumber + 1,
           hasNextPage,
           itemsPerPage,
-          allPosts,
-        },
+          allPosts
+        }
       }
 
       /**
        * Map over the posts for later creation
        */
-      nodes
-      && nodes.map((posts) => {
-        allPosts.push(posts)
-      })
+      nodes &&
+        nodes.map(posts => {
+          allPosts.push(posts)
+        })
 
       /**
        * If there's another post, fetch more
@@ -149,24 +149,25 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
    * Kick off our `fetchPosts` method which will get us all
    * the posts we need to create individual posts.
    */
-  await fetchPosts({ first: itemsPerPage, after: null }).then((wpPosts) => {
+  await fetchPosts({ first: itemsPerPage, after: null }).then(wpPosts => {
+    wpPosts &&
+      wpPosts.map(post => {
+        /**
+         * Build post path based of theme blogURI setting.
+         */
+        const path = `${blogURI}${post.uri}`
 
-    wpPosts && wpPosts.map((post) => {
-      /**
-       * Build post path based of theme blogURI setting.
-       */
-      const path = `${blogURI}${post.uri}`
+        createPage({
+          path: path,
+          component: postTemplate,
+          context: {
+            post: post,
+            allPosts
+          }
+        })
 
-      createPage({
-        path: path,
-        component: postTemplate,
-        context: {
-          post: post,
-        },
+        reporter.info(`post created:  ${post.uri}`)
       })
-
-      reporter.info(`post created:  ${path}`)
-    })
 
     reporter.info(`# -----> POSTS TOTAL: ${wpPosts.length}`)
 
@@ -174,14 +175,16 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
      * Map over the `blogPages` array to create the
      * paginated blog pages
      */
-    blogPages
-    && blogPages.map((blogPage) => {
-      if (blogPage.context.pageNumber === 1) {
-        blogPage.context.publisher = true;
-        blogPage.context.label = blogPage.path.replace('/', '');
-      }
-      createPage(blogPage);
-      reporter.info(`created blog archive page ${blogPage.context.pageNumber}`);
-    });
+    blogPages &&
+      blogPages.map(blogPage => {
+        if (blogPage.context.pageNumber === 1) {
+          blogPage.context.publisher = true
+          blogPage.context.label = blogPage.path.replace("/", "")
+        }
+        createPage(blogPage)
+        reporter.info(
+          `created blog archive page ${blogPage.context.pageNumber}`
+        )
+      })
   })
 }

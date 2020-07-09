@@ -1,21 +1,42 @@
-import React  from "react"
+import React from "react"
+import Layout from "../../components/Layout"
+import SEO from "../../components/SEO"
+import FluidImage from "../../components/FluidImage"
+import Hero from "../../components/Hero"
+import styled from "styled-components"
+import { Container, theme } from "@styles"
+const { fonts } = theme
 
-import Layout from "../../components/layout"
-import SEO from "../../components/seo"
-
-
+const StyledContainer = styled(Container)`
+  margin-top: 100px;
+  margin: 100px auto;
+  max-width: 1200px;
+  ul {
+    margin: 20px;
+  }
+`
+const StyledHeading = styled.h1`
+  font-family: ${fonts.RobotoMono};
+`
 const Page = ({ pageContext }) => {
   const {
-    page: { id, postId, title, content, excerpt },
-  } = pageContext;
-
+    page: { title, content, featuredImage, isFrontPage }
+  } = pageContext
+  console.log(pageContext)
   return (
-    <Layout>
+    <Layout isFrontPage={isFrontPage}>
       <SEO title={title} />
-
-      <h1> {title} </h1>
-      <div dangerouslySetInnerHTML={{__html: content}} />
-
+      {isFrontPage ? (
+        <div>
+          <Hero />
+        </div>
+      ) : (
+        <StyledContainer>
+          <FluidImage image={featuredImage} style={{ marginBottom: "15px" }} />
+          <StyledHeading> {title} </StyledHeading>
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </StyledContainer>
+      )}
     </Layout>
   )
 }
