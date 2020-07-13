@@ -1,7 +1,11 @@
 const theme = {
   colors: {
     white: "#ffffff",
-    black: "#0a1723",
+    Mirage: "#101824",
+    CuttySark: '#547980',
+    Keppel: '#45ADA8',
+    Chinook: '#9DE0AD',
+    Mimosa: '#E5FCC2',
     blue: "#278bdd",
     highlight: "rgba(41, 61, 90, 0.99)",
     transGreen: "rgba(100, 255, 218, 0.07)",

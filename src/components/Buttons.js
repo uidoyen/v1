@@ -16,17 +16,17 @@ const StyledButton = styled(Link)`
   padding: ${props => (props.small ? `0 15px` : `0 30px`)};
   margin-bottom: 20px;
   background-color: ${props =>
-    props.naked ? `transparent` : `${props.light ? "white" : "black"}`};
+    props.naked ? `transparent` : `${props.light ? "#E5FCC2" : "#594F4F"}`};
 
   border-color: ${props =>
-    props.naked ? `black` : `${props.light ? "white" : "black"}`};
+    props.naked ? `black` : `${props.light ? "#E5FCC2" : "#594F4F"}`};
 
   color: ${props =>
-    props.naked ? `black` : `${props.light ? "black" : "white"}`};
+    props.naked ? `black` : `${props.light ? "#594F4F" : "#E5FCC2"}`};
 
   span {
     background: ${props =>
-      props.naked ? `black` : `${props.light ? "black" : "white"}`};
+      props.naked ? `black` : `${props.light ? "#594F4F" : "#E5FCC2"}`};
     width: 20px;
     height: 2px;
     display: inline-block;

@@ -4,7 +4,8 @@ import PostEntry from "../../components/PostEntry"
 import Pagination from "../../components/Pagination"
 import SEO from "../../components/SEO"
 import styled from "styled-components"
-import { Container, media } from "@styles"
+import { Container, media, theme } from "@styles"
+const { colors } = theme;
 
 const StyledContainer = styled(Container)`
   display: flex;

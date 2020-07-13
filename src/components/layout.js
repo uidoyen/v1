@@ -31,12 +31,12 @@ const Layout = ({ children, isFrontPage }) => {
   return (
     <>
       <GlobalStyle />
-      <StyledPattern></StyledPattern>
+      {/* <StyledPattern></StyledPattern> */}
       <div>
         <Nav isFrontPage={isFrontPage} />
         <StyledMain>{children}</StyledMain>
         <Footer />
-        <StyledPattern></StyledPattern>
+        {/* <StyledPattern></StyledPattern> */}
       </div>
     </>
   )

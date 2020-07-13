@@ -9,24 +9,23 @@ const StyledPrev = styled(Link)`
   background-color: ${colors.black};
   border-radius: 3px;
   color: ${colors.white};
-  padding: 8px 20px;
+  padding: 6px 20px;
 
   &:hover {
-    background-color: ${colors.blue};
+    background-color: ${colors.CuttySark};
   }
 `
 const StyledNext = styled(Link)`
-  background-color: ${colors.black};
   border-radius: 3px;
   color: ${colors.white};
-  padding: 8px 20px;
+  padding: 6px 20px;
 
   &:hover {
-    background-color: ${colors.blue};
+    background-color: ${colors.CuttySark};
   }
 `
 const StyledCurrentPage = styled.span`
-  background-color: ${colors.white};
+  background-color: ${colors.Keppel};;
   border-radius: 3px;
   color: ${colors.black};
   padding: 8px 20px;

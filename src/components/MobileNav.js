@@ -32,7 +32,7 @@ const StyledMenuModal = styled.nav`
   padding: 50px;
   right: 0;
   margin-left: auto;
-  background-color: ${colors.blue};
+  background-color: ${colors.CuttySark};
   box-shadow: -10px 0px 30px -15px rgba(2, 12, 27, 0.7);
 `
 const StyledNavList = styled.ul`
@@ -45,7 +45,7 @@ const StyledNavList = styled.ul`
     font-size: ${fontSizes.lg};
     list-style: none;
     a {
-      color: white;
+      color: ${colors.Mimosa};
     }
   }
 `

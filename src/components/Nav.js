@@ -44,11 +44,10 @@ const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   position: fixed;
-  top: 10px;
   width: 100%;
   height: 70px;
   z-index: 3;
-  background-color: ${colors.black};
+  background-color: ${colors.Mirage};
   
   /* border-bottom-style: solid;
   border-bottom-width: 1px;
@@ -77,7 +76,7 @@ const StyledNavList = styled.ul`
     margin-left: 2.1875vw;
     font-size: ${fontSizes.md};
     a {
-      color: ${colors.white};
+      color: ${colors.Mimosa};
     }
   }
 `
@@ -113,7 +112,7 @@ const StyledHamburgerBox = styled.div`
   height: 24px;
 `
 const StyledHamburgerInner = styled.div`
-  background-color: ${colors.black};
+  background-color: ${colors.white};
   position: absolute;
   width: ${theme.hamburgerWidth}px;
   height: 2px;
@@ -133,7 +132,7 @@ const StyledHamburgerInner = styled.div`
   &:after {
     content: "";
     display: block;
-    background-color: ${colors.black};
+    background-color: ${colors.white};
     position: absolute;
     left: auto;
     right: 0;
@@ -206,7 +205,6 @@ function Nav({ isFrontPage }) {
                   if (data.wpgraphql.menuItems) {
                     const menuItems = data.wpgraphql.menuItems.nodes
                     const wordPressUrl = data.wpgraphql.generalSettings.url
-
                     return (
                       <TransitionGroup component={null}>
                         {isMounted &&

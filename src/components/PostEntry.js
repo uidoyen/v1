@@ -7,7 +7,8 @@ import styled from "styled-components"
 import FluidImage from "./FluidImage"
 import { blogURI } from "../../globals"
 import Buttons from "./Buttons"
-import { media } from "@styles"
+import { media, theme } from "@styles"
+const { colors } = theme
 TimeAgo.addLocale(en)
 const timeAgo = new TimeAgo("en-US")
 
@@ -15,7 +16,7 @@ const StyledContainer = styled.div`
   margin-bottom: 30px;
 `
 const StyledDate = styled.p`
-  color: #bbb;
+  color: ${colors.white};
   font-size: 1.6rem;
   padding-bottom: 10px;
   letter-spacing: -2px;
@@ -24,12 +25,15 @@ const StyledTitle = styled.h2`
   margin-bottom: 0px;
   font-size: 28px;
   font-weight: 600;
-  color: #278bdd;
+  color: ${colors.Chinook};
   ${media.tablet`font-size: 3vw;`};
   ${media.giant`font-size: 2.5vw;`};
 `
 const StyledFeaturedImage = styled(FluidImage)`
   margin: 3vh 0;
+`
+const StyledContent = styled.div`
+  color: ${colors.white};
 `
 const ButtonContainer = styled.div`
   display: flex;
@@ -42,9 +46,9 @@ const MetaDataList = styled.ul`
   padding: 0;
 `
 const MetaDataItem = styled.li`
-  background-color: black;
+  background-color: ${colors.Keppel};
   display: inline-block;
-  color: white;
+  color: ${colors.white};
   padding: 0 10px;
   margin-right: 10px;
   margin-bottom: 10px;
@@ -72,7 +76,7 @@ const PostEntry = ({ post }) => {
           <StyledFeaturedImage image={featuredImage} />
         </Link>
       </header>
-      <div dangerouslySetInnerHTML={{ __html: excerpt }} />
+      <StyledContent dangerouslySetInnerHTML={{ __html: excerpt }} />
       <ButtonContainer>
         <Buttons light small url={`/${blogURI}${uri}`}>
           Continue Reading

@@ -24,6 +24,7 @@ const StyledHeadingDesktop = styled.h1`
   line-height: 1.2;
   z-index: 2;
   letter-spacing: -2px;
+  color: ${colors.white};
 `
 const StyledHeadingMobile = styled.h1`
   font-family: ${fonts.FiraMono};
@@ -43,7 +44,7 @@ const StyledAvatar = styled.img`
 `
 const StyledUnderline = styled.span`
   ${mixins.underline};
-  color: ${colors.blue};
+  color: ${colors.Keppel};
 `
 const ButtonContainer = styled.div`
   display: flex;
@@ -82,12 +83,12 @@ function Hero() {
           )}
         </Media>
         <ButtonContainer>
-          {/* <Buttons dark>Let's Talk</Buttons> */}
+          <Buttons dark>Let's Talk</Buttons>
         </ButtonContainer>
-        {/* <StyledAvatar
+        <StyledAvatar
           src="https://jesussandrea.com/static/media/avatar@3x.d22ba766.jpg"
           alt="Ashique Ansari Avatar"
-        /> */}
+        />
       </StyledHero>
     </StyledContainer>
   )

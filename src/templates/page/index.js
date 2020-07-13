@@ -5,7 +5,7 @@ import FluidImage from "../../components/FluidImage"
 import Hero from "../../components/Hero"
 import styled from "styled-components"
 import { Container, theme } from "@styles"
-const { fonts } = theme
+const { fonts, colors } = theme
 
 const StyledContainer = styled(Container)`
   margin-top: 100px;
@@ -17,7 +17,9 @@ const StyledContainer = styled(Container)`
 `
 const StyledHeading = styled.h1`
   font-family: ${fonts.RobotoMono};
+  color: ${colors.Chinook};
 `
+
 const Page = ({ pageContext }) => {
   const {
     page: { title, content, featuredImage, isFrontPage }

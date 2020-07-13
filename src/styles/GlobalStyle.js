@@ -80,7 +80,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: ${colors.black};;
+    background-color: ${colors.Mirage};;
     color: ${colors.white};
     line-height: 1.6;
     font-size: 14px;
@@ -103,7 +103,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background-color: ${colors.blue};
+    background-color: ${colors.Mimosa};
     color: white;
   }
 
@@ -113,7 +113,7 @@ const GlobalStyle = createGlobalStyle`
   h4,
   h5 {
     font-family: ${fonts.SFMono};
-    color: ${colors.dark};
+    color: ${colors.Chinook};
     margin: 0 0 10px 0;
     font-weight: 500;
     line-height: 1.2;
@@ -140,7 +140,7 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     transition: ${theme.transition};
     cursor: pointer;
-    color: ${colors.blue};
+    color: ${colors.Mimosa};
 
     &:hover,
     &:focus {
@@ -185,7 +185,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   p {
-    margin: 0 0 15px 0;
+    margin: 0 0 20px 0;
   }
 
   ul, ol {
