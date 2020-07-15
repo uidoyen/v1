@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components"
 import theme from "./theme"
 import FontFaces from "./fonts"
 const { colors, fontSizes, fonts } = theme
+
 const GlobalStyle = createGlobalStyle`
   ${FontFaces};
   html {
@@ -80,7 +81,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: ${colors.Mirage};;
+    background-color: ${colors.Mirage};
     color: ${colors.white};
     line-height: 1.6;
     font-size: 14px;
@@ -184,23 +185,21 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
-  p {
-    margin: 0 0 20px 0;
-  }
-
   ul, ol {
     padding: 0;
     margin: 0;
   }
 
   article{
-
     ul,
     ol{
       margin: 20px;
       ol, ul{
         margin: 0 20px 10px;
       }
+    }
+    ol{
+      margin-left: 35px;
     }
   }
   
@@ -259,6 +258,7 @@ figure{
   display:block;
   padding: 0;
   margin: 0 0 10px 0;
+  font-size: ${fontSizes.sm}
 }
 table {
   margin: 0 0 20px 0;
@@ -274,7 +274,7 @@ table {
   td,
   th {
     text-align: left;
-    border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
+    border-bottom: 1px solid ${colors.CuttySark};
     font-feature-settings: "tnum";
     padding:1rem;
 
@@ -302,13 +302,14 @@ form {
   padding-top: 0;
   margin-bottom: 1.45rem;
 }
+
 blockquote {
   display: flex;
   flex-direction: column;
   font-style: italic;
-  background: #f9f9f9;
+  background: ${colors.Keppel};
   border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
+  margin: 1.5em 0;
   padding: 0.5em 10px;
   cite{
     font-weight: 600;

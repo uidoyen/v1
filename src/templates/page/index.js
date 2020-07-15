@@ -1,6 +1,6 @@
 import React from "react"
-import Layout from "../../components/Layout"
-import SEO from "../../components/SEO"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
 import FluidImage from "../../components/FluidImage"
 import Hero from "../../components/Hero"
 import styled from "styled-components"
@@ -24,7 +24,6 @@ const Page = ({ pageContext }) => {
   const {
     page: { title, content, featuredImage, isFrontPage }
   } = pageContext
-  console.log(pageContext)
   return (
     <Layout isFrontPage={isFrontPage}>
       <SEO title={title} />

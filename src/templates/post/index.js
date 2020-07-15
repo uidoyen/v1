@@ -1,13 +1,13 @@
 import React, { useEffect } from "react"
 import Prism from "prismjs"
-import Layout from "../../components/Layout"
-import SEO from "../../components/SEO"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
 import FluidImage from "../../components/FluidImage"
 import { Container, media, theme } from "@styles"
 import styled from "styled-components"
 import { blogURI } from "@config"
 import { Disqus, CommentCount } from "gatsby-plugin-disqus"
-const {colors} = theme;
+const { colors } = theme
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -19,7 +19,6 @@ const StyledContainer = styled(Container)`
 const StyledContent = styled.article`
   flex: 1;
   margin-bottom: 40px;
-  ${media.tablet`flex: 2;`};
 `
 const StyledTitle = styled.h1`
   margin-bottom: 0px;
@@ -30,6 +29,10 @@ const StyledTitle = styled.h1`
 `
 const StyledContentInner = styled.div`
   margin: 40px 0;
+
+  a:hover {
+    background-color: ${colors.CuttySark};
+  }
 `
 
 const Post = ({ pageContext, isFrontPage }) => {

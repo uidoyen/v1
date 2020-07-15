@@ -31,24 +31,26 @@ const StyledHeadingMobile = styled.h1`
   font-weight: 400;
   font-size: 30px;
   z-index: 2;
+  color: ${colors.white};
   ${media.tablet`font-size: 40px;`};
 `
-const StyledAvatar = styled.img`
-  width: 30vw;
-  position: absolute;
-  right: 0;
-  z-index: 1;
-  margin-top: 75px;
+// const StyledAvatar = styled.img`
+//   width: 30vw;
+//   position: absolute;
+//   right: 0;
+//   z-index: 1;
+//   margin-top: 75px;
 
-  ${media.thone`width: 25vw;margin-top: 0;`}
-`
+//   ${media.thone`width: 25vw;margin-top: 0;`}
+// `
+
 const StyledUnderline = styled.span`
   ${mixins.underline};
   color: ${colors.Keppel};
 `
 const ButtonContainer = styled.div`
   display: flex;
-  margin-top: 3vh;
+  margin-top: 3.5vh;
 `
 function Hero() {
   return (
@@ -76,19 +78,20 @@ function Hero() {
                   <div>
                     based in India, Bangalore. Creating apps and web pages.
                   </div>
-                  {/* <div>pages.</div> */}
                 </StyledHeadingDesktop>
               )}
             </Fragment>
           )}
         </Media>
         <ButtonContainer>
-          <Buttons dark>Let's Talk</Buttons>
+          <Buttons url="/" dark="true">
+            Let's Talk
+          </Buttons>
         </ButtonContainer>
-        <StyledAvatar
+        {/* <StyledAvatar
           src="https://jesussandrea.com/static/media/avatar@3x.d22ba766.jpg"
           alt="Ashique Ansari Avatar"
-        />
+        /> */}
       </StyledHero>
     </StyledContainer>
   )

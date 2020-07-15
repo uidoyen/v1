@@ -5,6 +5,7 @@ const Main = styled.main`
   min-height: calc(100vh - 78px);
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
 `
 

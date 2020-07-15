@@ -54,7 +54,7 @@ const StyledNavBottom = styled.div`
   flex-direction: column;
   color: white;
 `
-function MobileNav({ menuOpen, toggleMenu, MENU_QUERY }) {
+function MobileNav({ menuOpen, menuQuery }) {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -72,7 +72,7 @@ function MobileNav({ menuOpen, toggleMenu, MENU_QUERY }) {
       <StyledMenuModal>
         <StyledNavList>
           <StaticQuery
-            query={MENU_QUERY}
+            query={menuQuery}
             render={data => {
               if (data.wpgraphql.menuItems) {
                 const menuItems = data.wpgraphql.menuItems.nodes

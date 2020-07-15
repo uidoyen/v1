@@ -1,21 +1,12 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  useMemo,
-  useLayoutEffect
-} from "react"
-import debounce from "lodash.debounce"
+import React, { useState, useEffect } from "react"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { StaticQuery, graphql, Link } from "gatsby"
-import { throttle } from "@utils"
-import { navHeight } from "@config"
 import logo from "../images/uidoyen.svg"
 import MobileNav from "./MobileNav"
 import styled from "styled-components"
 import MenuItem from "./MenuItem"
 import { Container, media, theme, mixins } from "@styles"
-const { colors, fontSizes, fonts } = theme
+const { colors, fontSizes } = theme
 
 const MENU_QUERY = graphql`
   fragment MenuItem on WPGraphQL_MenuItem {
@@ -235,7 +226,7 @@ function Nav({ isFrontPage }) {
         <MobileNav
           menuOpen={menuOpen}
           toggleMenu={toggleMenu}
-          MENU_QUERY={MENU_QUERY}
+          menuQuery={MENU_QUERY}
         />
       </StyledContainer>
     </StyledHeader>

@@ -1,11 +1,10 @@
 import React from "react"
-import Layout from "../../components/Layout"
+import Layout from "../../components/layout"
 import PostEntry from "../../components/PostEntry"
 import Pagination from "../../components/Pagination"
-import SEO from "../../components/SEO"
+import SEO from "../../components/seo"
 import styled from "styled-components"
-import { Container, media, theme } from "@styles"
-const { colors } = theme;
+import { Container, media } from "@styles"
 
 const StyledContainer = styled(Container)`
   display: flex;

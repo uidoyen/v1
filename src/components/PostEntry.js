@@ -65,7 +65,9 @@ const PostEntry = ({ post }) => {
         <MetaDataList>
           {nodes &&
             nodes.map(category => {
-              return <MetaDataItem>{category.name}</MetaDataItem>
+              return (
+                <MetaDataItem key={category.name}>{category.name}</MetaDataItem>
+              )
             })}
         </MetaDataList>
       </MetaData>
@@ -78,7 +80,7 @@ const PostEntry = ({ post }) => {
       </header>
       <StyledContent dangerouslySetInnerHTML={{ __html: excerpt }} />
       <ButtonContainer>
-        <Buttons light small url={`/${blogURI}${uri}`}>
+        <Buttons dark="true" small="true" url={`/${blogURI}${uri}`}>
           Continue Reading
         </Buttons>
       </ButtonContainer>

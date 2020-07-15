@@ -1,11 +1,10 @@
 import React from "react"
-import { Link } from "gatsby"
 import { blogURI } from "../../globals"
 import styled from "styled-components"
 import { theme } from "@styles"
 const { colors } = theme
 
-const StyledPrev = styled(Link)`
+const StyledPrev = styled.a`
   background-color: ${colors.black};
   border-radius: 3px;
   color: ${colors.white};
@@ -15,7 +14,7 @@ const StyledPrev = styled(Link)`
     background-color: ${colors.CuttySark};
   }
 `
-const StyledNext = styled(Link)`
+const StyledNext = styled.a`
   border-radius: 3px;
   color: ${colors.white};
   padding: 6px 20px;
@@ -25,7 +24,7 @@ const StyledNext = styled(Link)`
   }
 `
 const StyledCurrentPage = styled.span`
-  background-color: ${colors.Keppel};;
+  background-color: ${colors.Keppel};
   border-radius: 3px;
   color: ${colors.black};
   padding: 8px 20px;
@@ -40,7 +39,7 @@ const Pagination = ({ pageNumber, hasNextPage }) => {
         {pageNumber > 1 && (
           <StyledPrev
             className="prev page-numbers"
-            to={
+            href={
               pageNumber > 2
                 ? `${blogURI}/page/${pageNumber - 1}`
                 : `${blogURI}/`
@@ -57,7 +56,7 @@ const Pagination = ({ pageNumber, hasNextPage }) => {
         {hasNextPage && (
           <StyledNext
             className="next page-numbers"
-            to={`${blogURI}/page/${pageNumber + 1}`}
+            href={`${blogURI}/page/${pageNumber + 1}`}
           >
             <span>Next page </span>
           </StyledNext>

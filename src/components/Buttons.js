@@ -7,26 +7,35 @@ const StyledButton = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${props => (props.small ? `40px` : `50px`)};
+  height: ${props => (props.small === "true" ? `40px` : `50px`)};
   border-width: 1px;
   border-style: solid;
   font-size: 1.3rem;
   font-weight: 400;
   text-transform: uppercase;
-  padding: ${props => (props.small ? `0 15px` : `0 30px`)};
+  padding: ${props => (props.small === "true" ? `0 15px` : `0 30px`)};
   margin-bottom: 20px;
+
   background-color: ${props =>
-    props.naked ? `transparent` : `${props.light ? "#E5FCC2" : "#594F4F"}`};
+    props.naked === "true"
+      ? `transparent`
+      : `${props.dark === "true" ? "#E5FCC2" : "#594F4F"}`};
 
   border-color: ${props =>
-    props.naked ? `black` : `${props.light ? "#E5FCC2" : "#594F4F"}`};
+    props.naked === "true"
+      ? `black`
+      : `${props.light === "true" ? "#E5FCC2" : "#594F4F"}`};
 
   color: ${props =>
-    props.naked ? `black` : `${props.light ? "#594F4F" : "#E5FCC2"}`};
+    props.naked === "true"
+      ? `black`
+      : `${props.light === "true" ? "#594F4F" : "#E5FCC2"}`};
 
   span {
     background: ${props =>
-      props.naked ? `black` : `${props.light ? "#594F4F" : "#E5FCC2"}`};
+      props.naked === "true"
+        ? `black`
+        : `${props.light === "true" ? "#594F4F" : "#E5FCC2"}`};
     width: 20px;
     height: 2px;
     display: inline-block;
@@ -35,7 +44,10 @@ const StyledButton = styled(Link)`
 
   i {
     border-color: transparent transparent transparent
-      ${props => (props.naked ? `black` : `${props.light ? "black" : "white"}`)};
+      ${props =>
+        props.naked === "true"
+          ? `black`
+          : `${props.light === "true" ? "black" : "white"}`};
     width: 0;
     height: 0;
     display: inline-block;
@@ -61,7 +73,6 @@ const StyledButton = styled(Link)`
 `
 
 const Buttons = props => {
-  console.log(props)
   return (
     <StyledButton {...props} to={props.url}>
       {props.children}
@@ -70,16 +81,17 @@ const Buttons = props => {
   )
 }
 Buttons.defaultProps = {
-  dark: false,
-  light: true,
-  naked: false,
-  small: false,
-  url: ""
+  dark: "false",
+  light: "true",
+  naked: "false",
+  small: "false",
+  url: "/"
 }
 Buttons.propTypes = {
-  dark: PropTypes.bool,
-  light: PropTypes.bool,
-  naked: PropTypes.bool,
-  small: PropTypes.bool
+  dark: PropTypes.string,
+  light: PropTypes.string,
+  naked: PropTypes.string,
+  small: PropTypes.string,
+  url: PropTypes.string
 }
 export default Buttons
