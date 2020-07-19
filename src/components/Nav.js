@@ -65,7 +65,7 @@ const StyledNavList = styled.ul`
   list-style: none;
   li {
     margin-left: 2.1875vw;
-    font-size: ${fontSizes.md};
+    font-size: ${fontSizes.lg};
     a {
       color: ${colors.Mimosa};
     }
@@ -75,7 +75,7 @@ const StyledLogo = styled.div`
   display: flex;
 `
 const StyledLogoImage = styled.img`
-  width: 40px;
+  width: 48px;
 `
 const StyledHamburger = styled.div`
   position: relative;

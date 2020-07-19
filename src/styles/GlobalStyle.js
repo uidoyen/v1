@@ -1,10 +1,8 @@
 import { createGlobalStyle } from "styled-components"
 import theme from "./theme"
-import FontFaces from "./fonts"
 const { colors, fontSizes, fonts } = theme
 
 const GlobalStyle = createGlobalStyle`
-  ${FontFaces};
   html {
     box-sizing: border-box;
     width: 100%;
@@ -73,12 +71,13 @@ const GlobalStyle = createGlobalStyle`
   h2,
   h3,
   h4,
-  h5 {
+  h5,
+  h6 {
     font-family: ${fonts.Courier};
     color: ${colors.Chinook};
     margin: 0 0 10px 0;
-    font-weight: 500;
-    line-height: 1.2;
+    font-weight: 600;
+    line-height: 1.1;
   }
 
   img {
@@ -271,14 +270,15 @@ blockquote {
   background: ${colors.Keppel};
   border-left: 10px solid #ccc;
   margin: 1.5em 0;
-  padding: 0.5em 10px;
+  padding:0 10px;
   cite{
     font-weight: 600;
   }
   p{
-    &:first-child{
-      margin-bottom: 0
-    }
+    line-height: 1.2;
+    margin: 0;
+    padding: 10px 0;
+
     
   }
 }

@@ -13,18 +13,18 @@ TimeAgo.addLocale(en)
 const timeAgo = new TimeAgo("en-US")
 
 const StyledContainer = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 4vh;
 `
 const StyledDate = styled.p`
   color: ${colors.white};
   font-size: 1.6rem;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   letter-spacing: -2px;
 `
 const StyledTitle = styled.h2`
   margin-bottom: 0px;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 400;
   color: ${colors.Chinook};
   ${media.tablet`font-size: 3vw;`};
   ${media.giant`font-size: 2.5vw;`};
@@ -51,7 +51,7 @@ const MetaDataItem = styled.li`
   color: ${colors.white};
   padding: 0 10px;
   margin-right: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 12px;
 `
 

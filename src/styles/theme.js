@@ -6,6 +6,7 @@ const theme = {
     Keppel: '#45ADA8',
     Chinook: '#9DE0AD',
     Mimosa: '#E5FCC2',
+    PaleSky: '#636E84',
     blue: "#278bdd",
     highlight: "rgba(41, 61, 90, 0.99)",
     transGreen: "rgba(100, 255, 218, 0.07)",
@@ -27,14 +28,8 @@ const theme = {
   },
 
   fonts: {
-    // PTSans: "PT Sans,sans-serif",
-    // RobotoMono: "Roboto Mono,monospace",
-    // FiraMono: "Fira Mono, monospace",
-    // Oswald: "Oswald,sans-serif",
-    // SFMono:
-    //   "SF Mono, Fira Code, Fira Mono, Roboto Mono, Lucida Console, Monaco, monospace",
-    Courier:"'courier-std', monospace",
-    Inconsolata: "'Inconsolata', monospace"
+    Courier:"courier-std, Inconsolata, monospace",
+    Inconsolata: "Inconsolata, monospace"
   },
 
   fontSizes: {

@@ -11,7 +11,7 @@ const StyledButton = styled(Link)`
   border-width: 1px;
   border-style: solid;
   font-size: 1.3rem;
-  font-weight: 400;
+  font-weight: 700;
   text-transform: uppercase;
   padding: ${props => (props.small === "true" ? `0 15px` : `0 30px`)};
   margin-bottom: 20px;

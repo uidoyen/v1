@@ -23,7 +23,7 @@ const StyledContent = styled.article`
 const StyledTitle = styled.h1`
   margin-bottom: 0px;
   font-size: 28px;
-  line-height: 1.2;
+  font-weight: 400;
   color: ${colors.Chinook};
   ${media.tablet`font-size: 3vw;`};
 `

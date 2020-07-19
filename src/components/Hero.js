@@ -26,15 +26,15 @@ const StyledHeadingDesktop = styled.h1`
   line-height: 1.2;
   z-index: 2;
   letter-spacing: -2px;
-  color: ${colors.white};
+  color: ${colors.PaleSky};
 `
 const StyledHeadingMobile = styled.h1`
   font-family: ${fonts.Courier};
-  font-weight: 700;
+  font-weight: 400;
   font-size: 30px;
   text-transform: uppercase;
   z-index: 2;
-  color: ${colors.white};
+  color: ${colors.PaleSky};
   ${media.tablet`font-size: 40px;`};
 `
 // const StyledAvatar = styled.img`
