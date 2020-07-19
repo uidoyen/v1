@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import { Helmet } from "react-helmet"
 import { GlobalStyle, Main } from "@styles"
 import Nav from "./Nav"
 import Footer from "./footer"
@@ -29,6 +30,10 @@ const StyledMain = styled(Main)``
 const Layout = ({ children, isFrontPage }) => {
   return (
     <>
+      <Helmet>
+      <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700&display=swap" rel="stylesheet" />
+      <link href="https://use.typekit.net/fxm4txi.css" rel="stylesheet" />
+      </Helmet>
       <GlobalStyle />
       {/* <StyledPattern></StyledPattern> */}
       <div>

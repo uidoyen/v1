@@ -33,45 +33,6 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
 
-@font-face {
-	font-family: SuisseIntl-Thin;
-	src: url(https://d33wubrfki0l68.cloudfront.net/17b6d4ffae47e4313fc5926fe0310e91bfebbe0d/03294/static/media/suisseintl-thin.183ac768.eot);
-  src: url(https://d33wubrfki0l68.cloudfront.net/17b6d4ffae47e4313fc5926fe0310e91bfebbe0d/03294/static/media/suisseintl-thin.183ac768.eot) format("embedded-opentype"), 
-  url(https://d33wubrfki0l68.cloudfront.net/90d33acb26d6871d667a60fdd13623a9c6027126/b85c9/static/media/suisseintl-thin.34634bc4.svg) format("svg"), 
-  url(https://d33wubrfki0l68.cloudfront.net/620dd1968110f0cd808abefaf52dd04140318e3b/b09bc/static/media/suisseintl-thin.e318debb.ttf) format("truetype"), 
-  url(https://d33wubrfki0l68.cloudfront.net/fd5577a538021dba60577a96c0b4e93dd2a55329/bedc1/static/media/suisseintl-thin.b6248863.woff) format("woff"), 
-  url(https://d33wubrfki0l68.cloudfront.net/9d1136f8bceb76bc2179b88f5e6071bba131b213/f02dc/static/media/suisseintl-thin.34bdbc14.woff2) format("woff2");
-	font-weight: 400;
-	font-style: normal
-}
-
-@font-face {
-	font-family: SuisseIntl-Light;
-	src: url(https://d33wubrfki0l68.cloudfront.net/7255ca504390def2c32d920da6ceaf1893d0c6ca/871b4/static/media/suisseintl-light.848e35f3.eot);
-  src: url(https://d33wubrfki0l68.cloudfront.net/7255ca504390def2c32d920da6ceaf1893d0c6ca/871b4/static/media/suisseintl-light.848e35f3.eot) format("embedded-opentype"), 
-  url(https://d33wubrfki0l68.cloudfront.net/e84bd005c21c77a6fabfcb0ebbd3f81744f43fdd/b6510/static/media/suisseintl-light.0fea08fc.svg) format("svg"), 
-  url(https://d33wubrfki0l68.cloudfront.net/87565495e16c505216fe3004e633b4b87f3a5c05/0cff4/static/media/suisseintl-light.9be8b893.ttf) format("truetype"), 
-  url(https://d33wubrfki0l68.cloudfront.net/acc38ab0a3bf06a406105a3d7fbf7204817c639d/a9100/static/media/suisseintl-light.f9951b5a.woff) format("woff"), 
-  url(https://d33wubrfki0l68.cloudfront.net/2b867b15de35062badb6efcededfe6fb889ca7b4/33fd0/static/media/suisseintl-light.f4a0fc94.woff2) format("woff2");
-	font-weight: 400;
-	font-style: normal
-}
-
-@font-face {
-	font-family: SuisseIntl-Regular;
-	src: url(https://d33wubrfki0l68.cloudfront.net/fd690cc5ebc825fa781f92a17ef4b5fd6355cb36/e20c3/static/media/suisseintl-regular.5d8022e7.eot);
-	src: url(https://d33wubrfki0l68.cloudfront.net/fd690cc5ebc825fa781f92a17ef4b5fd6355cb36/e20c3/static/media/suisseintl-regular.5d8022e7.eot) format("embedded-opentype"), url(https://d33wubrfki0l68.cloudfront.net/d0aa37e23a9b818209bf8f3b20ba08d8b6ba0bd5/21ad6/static/media/suisseintl-regular.2f5f20cc.svg) format("svg"), url(https://d33wubrfki0l68.cloudfront.net/114adb7c6ecdce210cf8c97fea98405e42fd6253/418d5/static/media/suisseintl-regular.bcf30b4b.ttf) format("truetype"), url(https://d33wubrfki0l68.cloudfront.net/2eb59fe7ce1d296d1e97ed12a7926376f398ff58/f97a4/static/media/suisseintl-regular.fa9e19ad.woff) format("woff"), url(https://d33wubrfki0l68.cloudfront.net/558867f7884b803a1446e513b14d5ca2597385cb/56974/static/media/suisseintl-regular.145f38f8.woff2) format("woff2");
-	font-weight: 400;
-	font-style: normal
-}
-
-@font-face {
-	font-family: SuisseIntl-Book;
-	src: url(https://d33wubrfki0l68.cloudfront.net/c7305cb5138173b60d3a0bfd8123b0ccb12f9a4a/d417b/static/media/suisseintl-book.39ec4934.eot);
-	src: url(https://d33wubrfki0l68.cloudfront.net/c7305cb5138173b60d3a0bfd8123b0ccb12f9a4a/d417b/static/media/suisseintl-book.39ec4934.eot) format("embedded-opentype"), url(https://d33wubrfki0l68.cloudfront.net/d66061c091c2d3d46de9efc5f44c4041adf002d9/4d48b/static/media/suisseintl-book.1011b374.svg) format("svg"), url(https://d33wubrfki0l68.cloudfront.net/d2a4f70c9848991740a0534853f47229b95fc185/630cb/static/media/suisseintl-book.8b92e96c.ttf) format("truetype"), url(https://d33wubrfki0l68.cloudfront.net/18c0df2a4f91f0388cc3d3e45f4598d790c9d8fa/3fbb2/static/media/suisseintl-book.ceb5ac42.woff) format("woff"), url(https://d33wubrfki0l68.cloudfront.net/c09ebc6a38278e2292499bed8fefaee50ffa1e8e/d8a61/static/media/suisseintl-book.0acdbb58.woff2) format("woff2");
-	font-weight: 400;
-	font-style: normal
-}
 
   body {
     margin: 0;
@@ -85,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${colors.white};
     line-height: 1.6;
     font-size: 14px;
-    font-family: ${fonts.SFMono};
+    font-family: ${fonts.Courier};
     font-weight: normal;
     font-size: 1.8rem;
 
@@ -113,7 +74,7 @@ const GlobalStyle = createGlobalStyle`
   h3,
   h4,
   h5 {
-    font-family: ${fonts.SFMono};
+    font-family: ${fonts.Courier};
     color: ${colors.Chinook};
     margin: 0 0 10px 0;
     font-weight: 500;
@@ -362,7 +323,7 @@ blockquote {
 
   .overline {
     color: ${colors.green};
-    font-family: ${fonts.SFMono};
+    font-family: ${fonts.Courier};
     font-size: ${fontSizes.md};
     font-weight: normal;
   }        

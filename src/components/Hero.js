@@ -1,10 +1,11 @@
-import React, { Fragment } from "react"
+import React, { Fragment } from 'react';
 import styled from "styled-components"
 import { Section } from "@styles"
 import { media, theme, mixins } from "@styles"
 import Buttons from "./Buttons"
 import Media from "react-media"
 const { fonts, colors } = theme
+
 
 const StyledContainer = styled(Section)`
   width: 100%;
@@ -18,18 +19,20 @@ const StyledHero = styled.div`
   flex-direction: column;
 `
 const StyledHeadingDesktop = styled.h1`
-  font-family: ${fonts.FiraMono};
+  font-family: ${fonts.Courier};
   font-weight: 400;
   font-size: 4vw;
+  text-transform: uppercase;
   line-height: 1.2;
   z-index: 2;
   letter-spacing: -2px;
   color: ${colors.white};
 `
 const StyledHeadingMobile = styled.h1`
-  font-family: ${fonts.FiraMono};
-  font-weight: 400;
+  font-family: ${fonts.Courier};
+  font-weight: 700;
   font-size: 30px;
+  text-transform: uppercase;
   z-index: 2;
   color: ${colors.white};
   ${media.tablet`font-size: 40px;`};

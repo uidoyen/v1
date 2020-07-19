@@ -27,13 +27,14 @@ const theme = {
   },
 
   fonts: {
-    SuisseIntl: "SuisseIntl-Lite",
-    PTSans: "PT Sans,sans-serif",
-    RobotoMono: "Roboto Mono,monospace",
-    FiraMono: "Fira Mono, monospace",
-    Oswald: "Oswald,sans-serif",
-    SFMono:
-      "SF Mono, Fira Code, Fira Mono, Roboto Mono, Lucida Console, Monaco, monospace"
+    // PTSans: "PT Sans,sans-serif",
+    // RobotoMono: "Roboto Mono,monospace",
+    // FiraMono: "Fira Mono, monospace",
+    // Oswald: "Oswald,sans-serif",
+    // SFMono:
+    //   "SF Mono, Fira Code, Fira Mono, Roboto Mono, Lucida Console, Monaco, monospace",
+    Courier:"'courier-std', monospace",
+    Inconsolata: "'Inconsolata', monospace"
   },
 
   fontSizes: {
