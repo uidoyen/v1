@@ -3,7 +3,7 @@ import { blogURI } from "../../globals"
 import styled from "styled-components"
 import { theme } from "@styles"
 const { colors } = theme
-
+console.log(blogURI)
 const StyledPrev = styled.a`
   background-color: ${colors.black};
   border-radius: 3px;
@@ -41,8 +41,8 @@ const Pagination = ({ pageNumber, hasNextPage }) => {
             className="prev page-numbers"
             href={
               pageNumber > 2
-                ? `${blogURI}/page/${pageNumber - 1}`
-                : `${blogURI}/`
+                ? `/${blogURI}/page/${pageNumber - 1}`
+                : `/${blogURI}/`
             }
           >
             <span>Previous page</span>
@@ -56,7 +56,7 @@ const Pagination = ({ pageNumber, hasNextPage }) => {
         {hasNextPage && (
           <StyledNext
             className="next page-numbers"
-            href={`${blogURI}/page/${pageNumber + 1}`}
+            href={`/${blogURI}/page/${pageNumber + 1}`}
           >
             <span>Next page </span>
           </StyledNext>

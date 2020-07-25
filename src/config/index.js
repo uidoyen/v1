@@ -1,39 +1,37 @@
 module.exports = {
-  siteTitle: "Brittany Chiang | Software Engineer",
+  siteTitle: "Ashique Ansari | Software Engineer",
   siteDescription:
-    "Brittany Chiang is a software engineer based in Boston, MA who specializes in developing (and occasionally designing) exceptional, high-quality websites and applications.",
-  siteKeywords:
-    "Brittany Chiang, Brittany, Chiang, bchiang7, software engineer, front-end engineer, web developer, javascript, northeastern",
+    "Ashique Ansari is a software engineer based in Boston, MA who specializes in developing (and occasionally designing) exceptional, high-quality websites and applications.",
+
   siteUrl: "https://uidoyen.com",
   blogURI: "blog",
   siteLanguage: "en_US",
-  googleAnalyticsID: "UA-45666519-2",
-  googleVerification: "DCl7VAf9tcz6eD9gb67NfkNnJ1PKRNcg8qQiwpbx9Lk",
-  name: "Ashique Ansari",
-  location: "Boston, MA",
-  email: "brittany.chiang@gmail.com",
-  github: "https://github.com/bchiang7",
-  twitterHandle: "@bchiang7",
+  googleAnalyticsID: "UA-90615455-1",
+  author: "Ashique Ansari",
+  location: "Bangalore, IN",
+  email: "asparmanik@gmail.com",
+  github: "https://github.com/uidoyen",
+  twitterHandle: "@uidoyen",
   socialMedia: [
     {
       name: "GitHub",
-      url: "https://github.com/bchiang7"
+      url: "https://github.com/uidoyen"
     },
     {
       name: "Linkedin",
-      url: "https://www.linkedin.com/in/bchiang7"
+      url: "https://www.linkedin.com/in/ansarihussain"
     },
     {
       name: "Codepen",
-      url: "https://codepen.io/bchiang7"
+      url: "https://codepen.io/uidoyen"
     },
     {
       name: "Instagram",
-      url: "https://www.instagram.com/bchiang7"
+      url: "https://www.instagram.com/hussain4u"
     },
     {
       name: "Twitter",
-      url: "https://twitter.com/bchiang7"
+      url: "https://twitter.com/uidoyen"
     }
   ],
 

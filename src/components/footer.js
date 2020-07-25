@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Container, mixins, theme } from "@styles"
 import smiley from "../images/smiley.svg"
-import { name } from "@config"
+import { author } from "@config"
 const { colors, fontSizes } = theme
 
 const StyledFooter = styled.footer`
@@ -38,11 +38,11 @@ function Footer() {
           <StyledContent>
             Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
           </StyledContent>
-          <img src={smiley} alt="Smiley Face - Brand"></img>
+          <img src={smiley} alt="Smiley Face"></img>
         </StyledBuiltWith>
 
         <StyledCopyright>
-          © {new Date().getFullYear()} — {name}
+          © {new Date().getFullYear()} — {author}
         </StyledCopyright>
       </StyledMadeWith>
     </StyledFooter>

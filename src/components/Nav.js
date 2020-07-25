@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { StaticQuery, graphql, Link } from "gatsby"
-import logo from "../images/uidoyen.svg"
 import MobileNav from "./MobileNav"
 import styled from "styled-components"
-import MenuItem from "./MenuItem"
+import MenuItem from "./menuItem"
 import { Container, media, theme, mixins } from "@styles"
+import IconLogo from "./icons/logo"
 const { colors, fontSizes } = theme
 
 const MENU_QUERY = graphql`
@@ -16,7 +16,6 @@ const MENU_QUERY = graphql`
     title
     target
   }
-
   query GETMAINMENU {
     wpgraphql {
       menuItems(where: { location: MENU_1 }) {
@@ -30,7 +29,6 @@ const MENU_QUERY = graphql`
     }
   }
 `
-
 const StyledHeader = styled.header`
   display: flex;
   align-items: center;
@@ -39,11 +37,6 @@ const StyledHeader = styled.header`
   height: 70px;
   z-index: 3;
   background-color: ${colors.Mirage};
-  
-  /* border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: ${props =>
-    props.isFrontPage ? `transparent` : `#eee`}; */
 `
 const StyledContainer = styled(Container)``
 const StyledNav = styled.nav`
@@ -74,7 +67,7 @@ const StyledNavList = styled.ul`
 const StyledLogo = styled.div`
   display: flex;
 `
-const StyledLogoImage = styled.img`
+const StyledLogoImage = styled.div`
   width: 48px;
 `
 const StyledHamburger = styled.div`
@@ -161,17 +154,18 @@ function Nav({ isFrontPage }) {
   useEffect(() => {
     setIsMounted(true)
   }, [])
-
   return (
-    <StyledHeader isFrontPage={isFrontPage}>
+    <StyledHeader>
       <StyledContainer>
         <StyledNav>
           <TransitionGroup component={null}>
             {isMounted && (
               <CSSTransition classNames="fadedown" timeout={3000}>
-                <StyledLogo>
-                  <Link to="/">
-                    <StyledLogoImage src={logo} alt="logo" />
+                <StyledLogo tabindex="-1">
+                  <Link to="/" area-lebel="home">
+                    <StyledLogoImage>
+                      <IconLogo />
+                    </StyledLogoImage>
                   </Link>
                 </StyledLogo>
               </CSSTransition>

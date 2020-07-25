@@ -1,7 +1,7 @@
 const pageTemplate = require.resolve("../src/templates/page/index.js")
 
-const {FluidImageFragment} = require("../src/templates/fragments")
-const {PageTemplateFragment} = require("../src/templates/page/data")
+const { FluidImageFragment } = require("../src/templates/fragments")
+const { PageTemplateFragment } = require("../src/templates/page/data")
 
 const GET_PAGES = `
     ${FluidImageFragment}
@@ -21,7 +21,7 @@ const GET_PAGES = `
                     hasNextPage
                     endCursor
                 }
-                nodes {                
+                nodes {       
                   ...PageTemplateFragment
                 }
             }
@@ -40,7 +40,6 @@ const itemsPerPage = 10
  * @returns {Promise<void>}
  */
 module.exports = async ({ actions, graphql, reporter }, options) => {
-
   /**
    * This is the method from Gatsby that we're going
    * to use to create pages in our static site.
@@ -55,7 +54,7 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
    * @param variables
    * @returns {Promise<*>}
    */
-  const fetchPages = async (variables) =>
+  const fetchPages = async variables =>
     /**
      * Fetch pages using the GET_PAGES query and the variables passed in.
      */
@@ -67,18 +66,18 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
         wpgraphql: {
           pages: {
             nodes,
-            pageInfo: { hasNextPage, endCursor },
-          },
-        },
+            pageInfo: { hasNextPage, endCursor }
+          }
+        }
       } = data
 
       /**
        * Map over the pages for later creation
        */
-      nodes
-      && nodes.map((pages) => {
-        allPages.push(pages)
-      })
+      nodes &&
+        nodes.map(pages => {
+          allPages.push(pages)
+        })
 
       /**
        * If there's another page, fetch more
@@ -102,29 +101,29 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
    * Kick off our `fetchPages` method which will get us all
    * the pages we need to create individual pages.
    */
-  await fetchPages({ first: itemsPerPage, after: null }).then((wpPages) => {
+  await fetchPages({ first: itemsPerPage, after: null }).then(wpPages => {
+    wpPages &&
+      wpPages.map(page => {
+        let pagePath = `${page.uri}`
 
-    wpPages && wpPages.map((page) => {
-      let pagePath = `${page.uri}`
+        /**
+         * If the page is the front page, the page path should not be the uri,
+         * but the root path '/'.
+         */
+        if (page.isFrontPage) {
+          pagePath = "/"
+        }
 
-      /**
-       * If the page is the front page, the page path should not be the uri,
-       * but the root path '/'.
-       */
-      if(page.isFrontPage) {
-        pagePath = '/'
-      }
+        createPage({
+          path: pagePath,
+          component: pageTemplate,
+          context: {
+            page: page
+          }
+        })
 
-      createPage({
-        path: pagePath,
-        component: pageTemplate,
-        context: {
-          page: page,
-        },
+        reporter.info(`page created: ${page.uri}`)
       })
-
-      reporter.info(`page created: ${page.uri}`)
-    })
 
     reporter.info(`# -----> PAGES TOTAL: ${wpPages.length}`)
   })

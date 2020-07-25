@@ -20,5 +20,4 @@ const PageTemplateFragment = `
         }
     }
 `
-
 module.exports.PageTemplateFragment = PageTemplateFragment

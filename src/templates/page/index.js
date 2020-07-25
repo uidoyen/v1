@@ -1,8 +1,8 @@
 import React from "react"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
-import FluidImage from "../../components/FluidImage"
-import Hero from "../../components/Hero"
+import FluidImage from "../../components/fluidImage"
+import Hero from "../../components/hero"
 import styled from "styled-components"
 import { Container, theme } from "@styles"
 const { fonts, colors } = theme
@@ -19,7 +19,6 @@ const StyledHeading = styled.h1`
   font-family: ${fonts.RobotoMono};
   color: ${colors.Chinook};
 `
-
 const Page = ({ pageContext }) => {
   const {
     page: { title, content, featuredImage, isFrontPage }

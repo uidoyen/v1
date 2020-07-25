@@ -1,21 +1,26 @@
 let activeEnv =
   process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
-
-console.log(`Using environment config: '${activeEnv}'`)
-
 require("dotenv").config({
-  path: `.env.${activeEnv}`
+path: `.env.${activeEnv}`
 })
-
-console.log(`This WordPress Endpoint is used: '${process.env.WORDPRESS_URL}'`)
+const config = require("./src/config")
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter WordPress Advanced`,
-    description: `The great Gatsby Starter WordPress Advanced.`,
-    author: `Henrik Wirth`
+    title: `uidoyen`,
+    description: `Ashique Hussain Ansari is a software engineer based in Bangalore, India who specializes in building (and occasionally designing) exceptional websites, applications, and everything in between.`,
+    siteKeywords:
+      "Ashique Hussain Ansari, Hussain Ansari, uidoyen, software engineer, front-end engineer, web developer, javascript, bangalore",
+    author: `Ashique Hussain Ansari`
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: config.googleAnalyticsID,
+        head: true
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
@@ -45,7 +50,7 @@ module.exports = {
       options: {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
-        url: `http://www.blog.uidoyen.com/graphql`
+        url: `${process.env.WORDPRESS_URL}/graphql`
       }
     },
     {

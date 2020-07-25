@@ -4,9 +4,9 @@ import TimeAgo from "javascript-time-ago"
 import en from "javascript-time-ago/locale/en"
 import styled from "styled-components"
 // import Image from "./Image"
-import FluidImage from "./FluidImage"
+import FluidImage from "./fluidImage"
 import { blogURI } from "../../globals"
-import Buttons from "./Buttons"
+import Buttons from "./buttons"
 import { media, theme } from "@styles"
 const { colors } = theme
 TimeAgo.addLocale(en)
@@ -58,7 +58,7 @@ const MetaDataItem = styled.li`
 const PostEntry = ({ post }) => {
   const { uri, title, featuredImage, date, excerpt, categories } = post
   const { nodes } = categories
-  console.log(nodes)
+  // console.log(nodes)
   return (
     <StyledContainer>
       <MetaData>

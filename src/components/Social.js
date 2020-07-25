@@ -35,7 +35,6 @@ const StyledSocialLink = styled.a`
   }
 `
 function Social() {
-  // console.log("nav", typeof color)
   return (
     <StyledSocial>
       <StyledSocialList>

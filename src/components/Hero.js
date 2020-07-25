@@ -1,11 +1,9 @@
-import React, { Fragment } from 'react';
+import React from "react"
 import styled from "styled-components"
 import { Section } from "@styles"
 import { media, theme, mixins } from "@styles"
-import Buttons from "./Buttons"
-import Media from "react-media"
+import Buttons from "./buttons"
 const { fonts, colors } = theme
-
 
 const StyledContainer = styled(Section)`
   width: 100%;
@@ -21,32 +19,13 @@ const StyledHero = styled.div`
 const StyledHeadingDesktop = styled.h1`
   font-family: ${fonts.Courier};
   font-weight: 400;
-  font-size: 4vw;
-  text-transform: uppercase;
+  font-size: 30px;
   line-height: 1.2;
   z-index: 2;
   letter-spacing: -2px;
-  color: ${colors.PaleSky};
+  color: ${colors.white};
+  ${media.tablet`font-size: 4vw;`};
 `
-const StyledHeadingMobile = styled.h1`
-  font-family: ${fonts.Courier};
-  font-weight: 400;
-  font-size: 30px;
-  text-transform: uppercase;
-  z-index: 2;
-  color: ${colors.PaleSky};
-  ${media.tablet`font-size: 40px;`};
-`
-// const StyledAvatar = styled.img`
-//   width: 30vw;
-//   position: absolute;
-//   right: 0;
-//   z-index: 1;
-//   margin-top: 75px;
-
-//   ${media.thone`width: 25vw;margin-top: 0;`}
-// `
-
 const StyledUnderline = styled.span`
   ${mixins.underline};
   color: ${colors.Keppel};
@@ -59,42 +38,20 @@ function Hero() {
   return (
     <StyledContainer>
       <StyledHero>
-        <Media
-          queries={{
-            medium: "(max-width: 999px)"
-          }}
-        >
-          {matches => (
-            <Fragment>
-              {matches.medium ? (
-                <StyledHeadingMobile>
-                  Hey, <StyledUnderline>I’m Ashique.</StyledUnderline> A web
-                  developer based in India, Bangalore. Creating apps and web
-                  pages.
-                </StyledHeadingMobile>
-              ) : (
-                <StyledHeadingDesktop>
-                  <div>
-                    Hey, <StyledUnderline>I’m Ashique.</StyledUnderline> A web
-                    developer
-                  </div>
-                  <div>
-                    based in India, Bangalore. Creating apps and web pages.
-                  </div>
-                </StyledHeadingDesktop>
-              )}
-            </Fragment>
-          )}
-        </Media>
+            <StyledHeadingDesktop>
+              <div>
+                Hey, <StyledUnderline>I’m Ashique.</StyledUnderline> A web
+                developer
+              </div>
+              <div>
+                based in India, Bangalore. Build things for the web and mobile.
+              </div>
+            </StyledHeadingDesktop>
         <ButtonContainer>
-          <Buttons url="/" dark="true">
+          <Buttons url="/contact" dark="true">
             Let's Talk
           </Buttons>
         </ButtonContainer>
-        {/* <StyledAvatar
-          src="https://jesussandrea.com/static/media/avatar@3x.d22ba766.jpg"
-          alt="Ashique Ansari Avatar"
-        /> */}
       </StyledHero>
     </StyledContainer>
   )

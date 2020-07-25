@@ -1,11 +1,33 @@
 import React, { useEffect, useState } from "react"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
-import { StaticQuery } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
 import styled from "styled-components"
 import { media, theme } from "@styles"
-import MenuItem from "./MenuItem"
+import MenuItem from "./menuItem"
 import Social from "./Social"
 const { colors, fontSizes } = theme
+
+const MOBILE_MENU_QUERY = graphql`
+  fragment MenuItem on WPGraphQL_MenuItem {
+    id
+    label
+    url
+    title
+    target
+  }
+  query GETMAINMOBILEMENU {
+    wpgraphql {
+      menuItems(where: { location: MENU_1 }) {
+        nodes {
+          ...MenuItem
+        }
+      }
+      generalSettings {
+        url
+      }
+    }
+  }
+`
 
 const StyledMenu = styled.div`
   display: block;
@@ -32,7 +54,7 @@ const StyledMenuModal = styled.nav`
   padding: 50px;
   right: 0;
   margin-left: auto;
-  background-color: ${colors.CuttySark};
+  background-color: ${colors.Keppel};
   box-shadow: -10px 0px 30px -15px rgba(2, 12, 27, 0.7);
 `
 const StyledNavList = styled.ul`
@@ -42,6 +64,7 @@ const StyledNavList = styled.ul`
 
   li {
     margin: 2.1875vw 0;
+    font-weight: 600;
     font-size: ${fontSizes.lg};
     list-style: none;
     a {
@@ -56,7 +79,7 @@ const StyledNavBottom = styled.div`
 `
 function MobileNav({ menuOpen, menuQuery }) {
   const [isMounted, setIsMounted] = useState(false)
-
+  // console.log(menuQuery)
   useEffect(() => {
     setTimeout(() => {
       setIsMounted(true)
@@ -72,7 +95,7 @@ function MobileNav({ menuOpen, menuQuery }) {
       <StyledMenuModal>
         <StyledNavList>
           <StaticQuery
-            query={menuQuery}
+            query={MOBILE_MENU_QUERY}
             render={data => {
               if (data.wpgraphql.menuItems) {
                 const menuItems = data.wpgraphql.menuItems.nodes
