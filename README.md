@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.uidoyen.com/icons/icon-192x192.png" width="70" />
+    <img alt="Gatsby" src="https://www.uidoyen.com/icons/icon.png" width="70" />
   </a>
 </p>
 <h1 align="center">
